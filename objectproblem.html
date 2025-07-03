@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Object Problems</title>
+
+
+</head>
+
+<body>
+
+
+  <script>
+    function SwitchCase(age) {
+      let num="";
+          
+      switch (true) {
+        case age<=12:
+           num = "Child";
+          break;
+        case age >= 12 && age <= 19:
+          num = "Teenager"
+          break;
+        case age >=20 && age <=59:
+          num= "Adult";
+          break;
+        case age>=60:
+          num = "Senior Citizen";
+          break;
+      }
+      
+      console.log(num);
+
+    }
+
+  SwitchCase(11)
+
+  </script>
+</body>
+
+</html>
