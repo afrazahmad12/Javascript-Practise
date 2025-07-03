@@ -117,6 +117,8 @@
     // console.log(Object.entries(object1));
     // input countFrequencyofVariable("hello")
     // output {h: 1, e: 1, l: 2, o: 1 }
+
+
     // function countFrequencyofVariable(str) {
     //   const string = {}
     //   for (let index = 0; index < str.length; index++) {
@@ -156,6 +158,22 @@
    
     // console.log(addNumber(5))
 
+  function countVowel(str) {
+
+    let count=0;
+    for (let index = 0; index < str.length; index++) {
+      const element = str[index];
+      
+      if (element === 'a'|| element=== 'e' || element=== 'o' || element=='i' || element=== 'u' ) {
+        
+         count++;
+        
+      }
+    }
+    console.log(count)
+  }
+  countVowel("javascript")
+ 
 
   </script>
 </body>
