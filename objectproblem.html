@@ -11,30 +11,92 @@
 
 
   <script>
+
     function SwitchCase(age) {
-      let num="";
-          
+      let num = "";
+
       switch (true) {
-        case age<=12:
-           num = "Child";
+
+        case age <= 12:
+          num = "Child";
           break;
         case age >= 12 && age <= 19:
           num = "Teenager"
           break;
-        case age >=20 && age <=59:
-          num= "Adult";
+        case age >= 20 && age <= 59:
+          num = "Adult";
           break;
-        case age>=60:
+        case age >= 60:
           num = "Senior Citizen";
           break;
       }
-      
+
       console.log(num);
 
     }
 
-  SwitchCase(11)
+    // SwitchCase(11)
 
+
+
+    //Problem
+
+    function SwitchCase(a, b, c) {
+
+
+      switch (true) {
+        case (a >= b && a >= c):
+          return a
+          break;
+        case (b >= a && b >= c):
+          return b
+          break;
+        case (c >= a && c >= b):
+          return c;
+          break;
+        default:
+          console.log("invalid")
+
+      }
+
+    }
+
+    // const result = SwitchCase(15,13,11)
+    // console.log(result)
+    function mergeAllProblems(caseType, parameter) {
+      switch (caseType) {
+        case "sumUpTo":
+          let sum = 0;
+          for (let index = parameter; index >= 0; index--) {
+            const element = parameter[index];
+            sum += index;
+
+          }
+          return sum
+          break;
+
+        case "reverseString":
+          let reverse = "";
+          for (let index = parameter.length - 1; index >= 0; index--) {
+            const element = parameter[index]
+            reverse = reverse + element;
+
+          }
+          return reverse;
+          
+          break;
+
+          default:
+          break;
+      }
+
+    }
+
+    const sum = mergeAllProblems("sumUpTo", 5)
+    console.log("sum of number", sum)
+
+    const reverString = mergeAllProblems("reverseString", "hello")
+    console.log("reverse string", reverString)
   </script>
 </body>
 
