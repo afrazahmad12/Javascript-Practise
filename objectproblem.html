@@ -86,7 +86,32 @@
           
           break;
 
-          default:
+        case "minMax":
+          let maxarray = [];
+          let minarray = [];
+          let largeTemp = 0;
+          let smallTemp =parameter[0];
+          for (let index = 0; index < parameter.length; index++) {
+            const element = parameter[index];
+            
+            if (largeTemp < parameter[index]) {
+              largeTemp = parameter[index] 
+        
+            } 
+
+            if(smallTemp > parameter[index]){
+              smallTemp = parameter[index];
+              
+            } 
+
+          }
+          return {
+            largeTemp: largeTemp,
+            smallTemp: smallTemp
+          }
+          
+
+        default:
           break;
       }
 
@@ -97,6 +122,10 @@
 
     const reverString = mergeAllProblems("reverseString", "hello")
     console.log("reverse string", reverString)
+
+    const minMax = mergeAllProblems("minMax",[11,2,3,4,5,6,7])
+    console.log("Min Max",minMax )
+    
   </script>
 </body>
 
