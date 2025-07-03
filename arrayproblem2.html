@@ -18,10 +18,7 @@
   console.log(array);
   console.log(newarray)
   */
-
     //problem 2
-
-
     // function even1(a) {
     //   let evenarray = [];
     //   let oddarray = [];
@@ -49,73 +46,106 @@
     //   console.log(sum)
     // }
     // sumOfnumber([1, 2, 3])
-
-
     //Problem 1
+    // function MinMaxarray(number) {
+
+    //     let minarray = 1;
+    //     let maxarray = [0];
+    //     for (let i = 0; i < number.length; i++) {
+    //       if (number[i] < minarray) {
+    //         minarray = number[i];
+
+    //       }
+    //       if (number[i] > maxarray) {
+    //         maxarray = number[i];
+
+    //       }
+    //     }
+    //     if (minarray % 2 === 0) {
+    //       console.log("even")
+    //     } else {
+    //       console.log('odd')
+    //     }
+    //     if (maxarray % 2 === 0) {
+    //       console.log("even")
+    //     } else {
+    //       console.log('odd')
+
+    //       console.log('Max:', maxarray, 'Min :', minarray)
+    //     }
+    //   }
+    //   let number = [11, 5, 3, 8]
+
+    // function strReverse(str) {
+    //     let reverse = "";
+
+    //     for (let i = str.length - 1; i >= 0; i--) {
+    //       reverse = reverse + str[i];
+
+    //     }
+    //     return reverse;
+    //   }
+    //   let orignalstring = "hello";
+    //   let result = strReverse(orignalstring);
+    //   console.log(result)
 
 
-  // function MinMaxarray(number) {
+    // let result = "";
+    // let i = 0;
 
-  //     let minarray = 1;
-  //     let maxarray = [0];
-  //     for (let i = 0; i < number.length; i++) {
-  //       if (number[i] < minarray) {
-  //         minarray = number[i];
+    // do {
+    //   i += 1;
+    //   result += i;
+    // } while (i < 5);
 
-  //       }
-  //       if (number[i] > maxarray) {
-  //         maxarray = number[i];
+    // console.log(result);
 
-  //       }
-  //     }
-  //     if (minarray % 2 === 0) {
-  //       console.log("even")
-  //     } else {
-  //       console.log('odd')
-  //     }
-  //     if (maxarray % 2 === 0) {
-  //       console.log("even")
-  //     } else {
-  //       console.log('odd')
+    // for (let i=0 ;i<=10; i++) {
+    //   console.log(i)
+    // } 
 
-  //       console.log('Max:', maxarray, 'Min :', minarray)
-  //     }
-  //   }
-  //   let number = [11, 5, 3, 8]
-    
-  
-  // function strReverse(str) {
-  //     let reverse = "";
+    // const numbers = [1,2,3,4,5,6]
+    // for (let num of numbers) {
+    //   console.log(num)
+    // }
+    // const object1 = {
+    //   a: "some string",
+    //   b: 42,
+    //   c: false,
+    // };
 
-  //     for (let i = str.length - 1; i >= 0; i--) {
-  //       reverse = reverse + str[i];
+    // console.log(Object.entries(object1));
+    // input countFrequencyofVariable("hello")
+    // output {h: 1, e: 1, l: 2, o: 1 }
+    function countFrequencyofVariable(str) {
+      const string = {}
+      for (let index = 0; index < str.length; index++) {
+        const element = str[index];
+        // console.log(element)
 
-  //     }
-  //     return reverse;
-  //   }
-  //   let orignalstring = "hello";
-  //   let result = strReverse(orignalstring);
-  //   console.log(result)
+        if (string.hasOwnProperty(element)) {
+          let repeatNumber = string[element];
+          string[element] = repeatNumber + 1;
+        } else {
+          string[element] = 1;
+
+        }
 
 
-  // let result = "";
-  // let i = 0;
+      }
+      // string.name ="afraz";
+      // string.address={adress1:"ACB-sblock"} ;
+      // string.phoneNumber = "03002323232";
+      console.log(string)
 
-  // do {
-  //   i += 1;
-  //   result += i;
-  // } while (i < 5);
+      // string.name="ali"
+      //  console.log(string)
 
-  // console.log(result);
+    }
 
-const cars = ["Saab", "Volvo", "BMW"];
+    countFrequencyofVariable("hellooo")
 
-// Change an element:
-cars[0] = "Toyota";
 
-// Add an element:
-cars.push("Audi");
-console.log(cars)
 
   </script>
 </body>
