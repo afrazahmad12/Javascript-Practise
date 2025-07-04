@@ -179,6 +179,9 @@
           break;
 
         case "duplicateRemove":
+          if (typeof parameter !== "number"){
+            "invalid parameter"
+          }
           let uniquearr = [parameter[0]];
 
           for (let i = 0; i < parameter.length; i++) {
