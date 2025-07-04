@@ -66,6 +66,9 @@
     function mergeAllProblems(caseType, parameter) {
       switch (caseType) {
         case "sumUpTo":
+           if (typeof parameter !== "number") {
+            return "invalid parameter";
+          }
           let sum = 0;
           for (let index = parameter; index >= 0; index--) {
             const element = parameter[index];
@@ -76,6 +79,9 @@
           break;
 
         case "reverseString":
+           if (typeof parameter !== "string") {
+            return "invalid parameter";
+          }
           let reverse = "";
           for (let index = parameter.length - 1; index >= 0; index--) {
             const element = parameter[index]
@@ -87,6 +93,9 @@
           break;
 
         case "minMax":
+           if (typeof parameter !== "number") {
+            return "invalid parameter";
+          }
           let maxarray = [];
           let minarray = [];
           let largeTemp = 0;
@@ -112,6 +121,9 @@
 
 
         case "countVowel":
+          if (typeof parameter !== "string") {
+            return "invalid parameter";
+          }
           let count = 0;
 
           for (let index = 0; index < parameter.length; index++) {
@@ -127,6 +139,9 @@
           break;
 
         case "calculateFactorial":
+           if (typeof parameter !== "number") {
+            return "invalid parameter";
+          }
           let factorial = 1
 
           for (let index = 1; index <= parameter; index++) {
@@ -137,7 +152,10 @@
           break;
 
         case "isPalindrome":
-          
+          if (typeof parameter !== "string") {
+            return "invalid parameter";
+          }
+
           let reverse1 = "";
           
           for (let index = parameter.length; index >= 0; index--) {
@@ -169,19 +187,19 @@
     const sum = mergeAllProblems("sumUpTo", 5)
     console.log("sum of number", sum)
 
-    const reverString = mergeAllProblems("reverseString", "hello")
+    const reverString = mergeAllProblems("reverseString","apple")
     console.log("reverse string", reverString)
 
-    const minMax = mergeAllProblems("minMax", [11, 2, 3, 4, 5, 6, 7])
+    const minMax = mergeAllProblems("minMax", [1, 2, 3, 4, 5])
     console.log("Min Max", minMax)
 
-    const countVowel = mergeAllProblems("countVowel", 'apple')
+    const countVowel = mergeAllProblems("countVowel", "javascript")
     console.log("Count Vowel", countVowel)
 
     const calculateFactorial = mergeAllProblems("calculateFactorial", 3)
     console.log("Factorial", calculateFactorial)
-
-    const isPalindrome = mergeAllProblems("isPalindrome", "ball")
+    
+    const isPalindrome = mergeAllProblems("isPalindrome","banana" )
     console.log("Palindrome", isPalindrome)
 
 
