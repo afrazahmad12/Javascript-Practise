@@ -24,8 +24,19 @@
           return count;
 
         } else {
-          console.log("built In")
+          let count = {};
+          parameter.forEach(element => {
+            console.log('builtin', element)
+            if (count[element]) {
+              count[element]++;
+            } else {
+              count[element] = 1
+            }
+          });
+          return count;
         }
+
+
 
 
       } else if (caseType === "missingNumber") {
@@ -43,18 +54,43 @@
 
           }
         } else {
+          parameter.forEach((element, index) => {
+            if (index < parameter.length - 1) {
+
+              if (element + 1 !== parameter[index + 1]) {
+                console.log("built in missing element", element + 1)
+                parameter.splice((index + 1), 0, element + 1)
+              }
+            }
+
+
+          });
           console.log("built In1")
+
         }
 
       }
+      if (caseType === "rotateElement") {
+        if (codeType === "custom") {
+            const temp = parameter[parameter.length - 1]
+            console.log("temp",temp)
+            parameter[parameter.length - 1] = parameter[0];
+            parameter[0] = temp;
+        }
 
+      } else { }
     }
 
 
-    const stringCount = allArrayProblem("stringCount", "custom", ["apple", "banana", "apple"])
+
+
+    const stringCount = allArrayProblem("stringCount", "builtIn", ["apple", "banana", "apple"])
     console.log("String Count ", stringCount);
-    const missingNumber = allArrayProblem("missingNumber","custom" ,[1, 4, 6, 9])
+    const missingNumber = allArrayProblem("missingNumber", "builtIn", [1, 4, 6, 9])
     console.log("misssing Number", missingNumber)
+
+    const rotateElement = allArrayProblem("rotateElement", "custom", [1, 5, 3, 4])
+    console.log("rotateElement", rotateElement)
 
 
 
