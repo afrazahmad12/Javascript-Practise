@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- 
+
   <title>Array Methods</title>
 
-  
- 
+
+
 </head>
+
 <body>
   <script>
-function allArrayProblem(caseType,parameter){
-  if (caseType === "stringCount") {}
+    function allArrayProblem(caseType, parameter) {
+      if (caseType === "stringCount") {
+        let count = {};
+        for (let index = 0; index < parameter.length; index++) {
+          const element = parameter[index];
+          if (count[element]) {
+            count[element]++;
+
+          } else {
+            count[element] = 1
+          }
 
 
-}
-const stringCount = allArrayProblem("stringCount",["apple","banana","apple"])
-console.log("String Count ",stringCount);
+        } return count
+      }
+
+      else if (caseType === "missingNumber") {
+
+        for (let index = 0; index < parameter.length; index++) {
+          if (index < parameter.length - 1) {
+            const element = parameter[index];
+
+            if (element + 1 !== parameter[index + 1]) {
+              console.log("missing element", element + 1)
+              parameter.splice((index + 1), 0, element + 1)
+            } 
+          }
+
+
+        }
+      }
+
+    }
+
+
+    const stringCount = allArrayProblem("stringCount", ["apple", "banana", "apple"])
+    console.log("String Count ", stringCount);
+    const missingNumber = allArrayProblem("missingNumber", [1, 4, 6, 9])
+    console.log("misssing Number", missingNumber)
 
 
 
   </script>
 </body>
+
 </html>
