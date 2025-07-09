@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <title>Array Methods</title>
 </head>
-
 <body>
   <script>
     function allArrayProblem(caseType, codeType, parameter) {
-
       if (caseType === "stringCount") {
         if (codeType === "custom") {
           let count = {};
@@ -35,65 +31,98 @@
           });
           return count;
         }
-
-
-
-
       } else if (caseType === "missingNumber") {
         if (codeType === "custom") {
+          let orignalArray = [];
           for (let index = 0; index < parameter.length; index++) {
             if (index < parameter.length - 1) {
               const element = parameter[index];
-
               if (element + 1 !== parameter[index + 1]) {
-                console.log("missing element", element + 1)
                 parameter.splice((index + 1), 0, element + 1)
+              } else {
+                orignalArray.push(element);
               }
             }
-
-
           }
+          return {
+            orignalArray: orignalArray,
+            parameter: parameter
+          }
+
         } else {
           parameter.forEach((element, index) => {
             if (index < parameter.length - 1) {
-
               if (element + 1 !== parameter[index + 1]) {
-                console.log("built in missing element", element + 1)
                 parameter.splice((index + 1), 0, element + 1)
               }
             }
-
-
           });
-          console.log("built In1")
-
         }
 
-      }
-      if (caseType === "rotateElement") {
+      } else if (caseType === "rotateElement") {
         if (codeType === "custom") {
-            const temp = parameter[parameter.length - 1]
-            console.log("temp",temp)
-            parameter[parameter.length - 1] = parameter[0];
-            parameter[0] = temp;
+          const temp = parameter[parameter.length - 1]
+
+          parameter[parameter.length - 1] = parameter[0];
+          parameter[0] = temp;
+          return parameter
+        } else {
+          const temp = parameter[parameter.length - 1]
+
+          parameter[parameter.length - 1] = parameter[0];
+          parameter[0] = temp;
+          return parameter
+        }
+      } else if (caseType === "removeDuplicate") {
+        if (codeType === "custom") {
+          let uniqueArr = [parameter[0]];
+          for (let index = 0; index < parameter.length; index++) {
+            const element = parameter[index];
+            if (!uniqueArr.includes(element)) {
+              uniqueArr.push(element);
+            }
+          }
+          return uniqueArr;
+        } else {
+          // 1st solution
+          // let array = [...new Set(parameter)]
+          //2nd solution 
+          let array = parameter.filter(function (item, index) {
+            return parameter.indexOf(item) == index;
+          })
+          return array;
         }
 
-      } else { }
+      } else if (caseType === "findMax") {
+        if (codeType === "custom") {
+          let maxTemp = parameter[0];
+          for (let index = 0; index < parameter.length; index++) {
+            const element = parameter[index];
+            console.log("findmax element", element)
+            if (maxTemp < parameter[index]) {
+              maxTemp = parameter[index];
+            }
+          }
+          return maxTemp;
+        } else {
+          let max = Math.max(...parameter);
+          return max;
+        }
+      } 
     }
-
-
-
-
     const stringCount = allArrayProblem("stringCount", "builtIn", ["apple", "banana", "apple"])
     console.log("String Count ", stringCount);
-    const missingNumber = allArrayProblem("missingNumber", "builtIn", [1, 4, 6, 9])
+    const missingNumber = allArrayProblem("missingNumber", "custom", [1, 4, 6, 9])
     console.log("misssing Number", missingNumber)
 
     const rotateElement = allArrayProblem("rotateElement", "custom", [1, 5, 3, 4])
     console.log("rotateElement", rotateElement)
 
+    const removeDuplicate = allArrayProblem("removeDuplicate", "built", [1, 2, 2, 3, 4, 5])
+    console.log("Remove duplicate", removeDuplicate)
 
-
+    const findMax = allArrayProblem("findMax", "s", [3, 9, 1, 7])
+    console.log("findMax", findMax)
   </script>
 </body>
 
