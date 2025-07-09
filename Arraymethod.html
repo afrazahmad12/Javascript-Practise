@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Array Methods</title>
 </head>
+
 <body>
   <script>
     function allArrayProblem(caseType, codeType, parameter) {
@@ -68,7 +70,6 @@
           return parameter
         } else {
           const temp = parameter[parameter.length - 1]
-
           parameter[parameter.length - 1] = parameter[0];
           parameter[0] = temp;
           return parameter
@@ -87,6 +88,7 @@
           // 1st solution
           // let array = [...new Set(parameter)]
           //2nd solution 
+
           let array = parameter.filter(function (item, index) {
             return parameter.indexOf(item) == index;
           })
@@ -95,6 +97,9 @@
 
       } else if (caseType === "findMax") {
         if (codeType === "custom") {
+          let array = [1, 2, 3]
+          let a = array.splice(1, 1)
+          console.log("a", a)
           let maxTemp = parameter[0];
           for (let index = 0; index < parameter.length; index++) {
             const element = parameter[index];
@@ -108,7 +113,77 @@
           let max = Math.max(...parameter);
           return max;
         }
-      } 
+      } else if (caseType === "sumElement") {
+        if (codeType === "custom") {
+          let sum = 0;
+          for (let index = 0; index < parameter.length; index++) {
+            const element = parameter[index];
+            sum = sum + element;
+            console.log("sum", element)
+          }
+          return sum;
+        } else {
+
+          var sum = parameter.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+          }, 0);
+          return sum
+        }
+      } else if (caseType === "reverseArray") {
+        if (codeType === "custom") {
+          let reversearray = [];
+          for (index = parameter.length - 1; index >= 0; index--) {
+            const element = parameter[index];
+            reversearray.push(element);
+          }
+          return reversearray;
+        } else {
+          return parameter.reverse()
+        }
+      } else if (caseType === "findEvenOdd") {
+        if (codeType === "custom") {
+          let evenarray = [];
+          let oddarray = [];
+          for (let index = 0; index < parameter.length; index++) {
+            const element = parameter[index];
+            if (element % 2 === 0) {
+              evenarray.push(element)
+            } else {
+              oddarray.push(element)
+            }
+          }
+          return {
+            evenarray: evenarray,
+            oddarray: oddarray
+
+          }
+        } else {
+
+          var array = parameter;
+          array.sort((a, b) => a % 2 - b % 2);
+          return array;
+        }
+      } else if (caseType === "findSecondLargest") {
+        if (codeType === "custom") {
+          let temp = [];
+          // let scondlargest = [];
+          for (let i = 0; i < parameter.length; i++) {
+            for (let j = 0; j < i; j++) {
+              if (parameter[i] < parameter[j]) {
+                let temp = parameter[j];
+                parameter[j] = parameter[i];
+                parameter[i] = temp;
+              }
+            }
+          }
+          let secondlargest = parameter[parameter.length - 2];
+          return secondlargest;
+        } else {
+          let array = parameter.sort((a, b) => a - b);
+          let secondlargest = array[array.length - 2];
+          return secondlargest;
+        }
+      }
     }
     const stringCount = allArrayProblem("stringCount", "builtIn", ["apple", "banana", "apple"])
     console.log("String Count ", stringCount);
@@ -121,8 +196,22 @@
     const removeDuplicate = allArrayProblem("removeDuplicate", "built", [1, 2, 2, 3, 4, 5])
     console.log("Remove duplicate", removeDuplicate)
 
-    const findMax = allArrayProblem("findMax", "s", [3, 9, 1, 7])
+    const findMax = allArrayProblem("findMax", "custom", [3, 9, 1, 7])
     console.log("findMax", findMax)
+
+    const sumElement = allArrayProblem("sumElement", "custom", [1, 2, 3])
+    console.log("Sum of Elements", sumElement)
+
+    const reverseArray = allArrayProblem("reverseArray", "customs", [1, 2, 3])
+    console.log("Reverse Array", reverseArray)
+
+    const findEvenOdd = allArrayProblem("findEvenOdd", "customs", [1, 2, 3, 4, 5])
+    console.log("find Even Odd", findEvenOdd)
+
+    const findSecondLargest = allArrayProblem("findSecondLargest", "custom", [1, 2, 6, 9, 5, 10])
+    console.log("Find Second Largest", findSecondLargest)
+
+
   </script>
 </body>
 
