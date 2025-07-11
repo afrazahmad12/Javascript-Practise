@@ -7,7 +7,7 @@
 
 <body>
   <script>
-    function allArrayProblem(caseType, codeType, parameter) {
+    function allArrayProblem(caseType, codeType, parameter, second) {
       if (caseType === "stringCount") {
         if (codeType === "custom") {
           let count = {};
@@ -24,7 +24,7 @@
         } else {
           let count = {};
           parameter.forEach(element => {
-            console.log('builtin', element)
+            // console.log('builtin', element)
             if (count[element]) {
               count[element]++;
             } else {
@@ -97,13 +97,9 @@
 
       } else if (caseType === "findMax") {
         if (codeType === "custom") {
-          let array = [1, 2, 3]
-          let a = array.splice(1, 1)
-          console.log("a", a)
           let maxTemp = parameter[0];
           for (let index = 0; index < parameter.length; index++) {
             const element = parameter[index];
-            console.log("findmax element", element)
             if (maxTemp < parameter[index]) {
               maxTemp = parameter[index];
             }
@@ -119,7 +115,6 @@
           for (let index = 0; index < parameter.length; index++) {
             const element = parameter[index];
             sum = sum + element;
-            console.log("sum", element)
           }
           return sum;
         } else {
@@ -183,9 +178,66 @@
           let secondlargest = array[array.length - 2];
           return secondlargest;
         }
+      } else if (caseType === "mergeArray") {
+        if (codeType === "custom") {
+          let mergearray = [];
+          for (let index = 0; index < parameter.length; index++) {
+            const element = parameter[index];
+            mergearray.push(element);
+
+          }
+          for (let index = 0; index < second.length; index++) {
+            const values = second[index];
+            mergearray.push(values);
+          }
+          return mergearray;
+
+
+        } else {
+          let merge = [];
+          merge = parameter.concat(second)
+          return merge;
+        }
+
+      } else if (caseType === "checkSort") {
+        if (codeType === "custom") {
+          let isAscending = true;
+          let oldarray = parameter;
+          for (var i = 0, l = parameter.length - 1; i < l; i++) {
+            isAscending = isAscending && (parameter[i] < parameter[i + 1]);
+          }
+          return isAscending;
+        } else {
+          return "In built not applicable";
+        }
+
+      } else if (caseType === "countOccurance") {
+        if (codeType === "custom") {
+          let count = {};
+          for (let index = 0; index < parameter.length; index++) {
+            const element = parameter[index];
+            // console.log(element);
+            if (count[element]) {
+              count[element]++;
+            } else {
+              count[element] = 1;
+            }
+          }
+          return count;
+        } else {
+          const count = parameter.reduce((acc, curr) => {
+            acc[curr] = (acc[curr] || 0) + 1;
+            return acc;
+          }, {});
+          return count;
+
+        }
+
       }
     }
-    const stringCount = allArrayProblem("stringCount", "builtIn", ["apple", "banana", "apple"])
+
+
+    const stringCount = allArrayProblem("stringCount", "custom", ["apple", "banana", "apple"])
     console.log("String Count ", stringCount);
     const missingNumber = allArrayProblem("missingNumber", "custom", [1, 4, 6, 9])
     console.log("misssing Number", missingNumber)
@@ -210,6 +262,16 @@
 
     const findSecondLargest = allArrayProblem("findSecondLargest", "custom", [1, 2, 6, 9, 5, 10])
     console.log("Find Second Largest", findSecondLargest)
+
+
+    const mergeArray = allArrayProblem("mergeArray", "customs", [1, 2, 3, 4,], [5, 6, 7])
+    console.log("Merge Array", mergeArray)
+
+    const checkSort = allArrayProblem("checkSort", "customs", [1, 2, 3, 4,])
+    console.log("Check Sort", checkSort)
+
+    const countOccurance = allArrayProblem("countOccurance", "customs", [1, 2, 3, 3, 4])
+    console.log("Count Occurance", countOccurance);
 
 
   </script>
